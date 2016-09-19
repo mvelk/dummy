@@ -1,3 +1,6 @@
+require_relative 'cursor'
+require 'colorize'
+
 class Display
   attr_accessor :cursor
 

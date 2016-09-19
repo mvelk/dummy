@@ -1,3 +1,6 @@
+require_relative 'computer_player'
+require_relative 'human_player'
+
 class Player
   attr_reader :color
 
@@ -5,22 +8,4 @@ class Player
     @color = color
   end
 
-end
-
-class HumanPlayer < Player
-  def initialize(color)
-    super
-  end
-
-  def make_move
-  end
-end
-
-class ComputerPlayer < Player
-  def initialize(color)
-    super
-  end
-
-  def make_move
-  end
 end
