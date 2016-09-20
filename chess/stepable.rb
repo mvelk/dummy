@@ -2,6 +2,7 @@
 
 module Stepable
   def moves
+    offsets = self.move_diffs
   end
 
   private

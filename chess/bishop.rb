@@ -1,4 +1,3 @@
-
 class Bishop < Piece
 
   def symbol

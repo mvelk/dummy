@@ -1,10 +1,8 @@
-require_relative 'board'
-require_relative 'display'
-require_relative 'player'
+
 
 class Chess
   attr_accessor :current_player
-  
+
   def initialize(color)
     @current_player = color
   end

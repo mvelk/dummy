@@ -1,5 +1,4 @@
-require_relative 'piece'
-require_relative 'null_piece'
+require_relative 'manifest'
 
 class Board
   attr_accessor :rows
@@ -51,7 +50,7 @@ class Board
     [1,6].each do |row_num|
       color = row_num == 1 ? :black : :white
       (0..7).each do |col_num|
-        self[row_num, col_num] = Pawn.new(color, [row_num, col_num], self)
+        self[[row_num, col_num]] = Pawn.new(color, [row_num, col_num], self)
       end
     end
 
@@ -60,26 +59,26 @@ class Board
       color = row_num == 0 ? :black : :white
       #place rooks
       [0,7].each do |col_num|
-        self[row_num, col_num] = Rook.new(color, [row_num, col_num], self)
+        self[[row_num, col_num]] = Rook.new(color, [row_num, col_num], self)
       end
       #place knights
       [1,6].each do |col_num|
-        self[row_num, col_num] = Knight.new(color, [row_num, col_num], self)
+        self[[row_num, col_num]] = Knight.new(color, [row_num, col_num], self)
       end
       #place bishops
       [2,5].each do |col_num|
-        self[row_num, col_num] = Bishop.new(color, [row_num, col_num], self)
+        self[[row_num, col_num]] = Bishop.new(color, [row_num, col_num], self)
       end
       #place queens
-      self[row_num, 4] = Queen.new(color, [row_num, 4], self)
+      self[[row_num, 3]] = Queen.new(color, [row_num, 3], self)
       #place kings
-      self[row_num, 5] = King.new(color, [row_num, 5], self)
+      self[[row_num, 4]] = King.new(color, [row_num, 4], self)
     end
 
     #place null pieces
     (2..5).each do |row_num|
       (0..7).each do |col_num|
-        self[row_num, col_num] = NullPiece.instance
+        self[[row_num, col_num]] = NullPiece.instance
       end
     end
 
